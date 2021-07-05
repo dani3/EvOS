@@ -1,10 +1,17 @@
 ORG 0
 BITS 16
 
-; Jump to our code, some BIOS might not do this themselves.
-jmp 0x7c0:start
+_start:
+    jmp short start
+    nop
+
+times 33 db 0
 
 start:
+    ; Jump to our code, some BIOSs might not do this themselves.
+    jmp 0x7c0:step2
+
+step2:
     ; Clear interrupts while we change the data segment
     cli
 
