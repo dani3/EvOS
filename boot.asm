@@ -1,8 +1,23 @@
-; Indicate the offset of where this code is stored.
-ORG 0x7c00
+ORG 0
 BITS 16
 
+; Jump to our code, some BIOS might not do this themselves.
+jmp 0x7c0:start
+
 start:
+    ; Clear interrupts while we change the data segment
+    cli
+
+    mov ax, 0x7c0
+    mov ds, ax
+    mov es, ax
+    mov ax, 0x00
+    mov ss, ax
+    mov sp, 0x7c00
+
+    ; Enable interrupts
+    sti
+
     ; Move the address of the label to si
     mov si, message
     call print
