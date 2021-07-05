@@ -11,6 +11,12 @@ start:
     ; Jump to our code, some BIOSs might not do this themselves.
     jmp 0x7c0:step2
 
+handle_zero:
+    mov ah, 0x0e
+    mov al, 'A'
+    int 0x10
+    iret
+
 step2:
     ; Clear interrupts while we change the data segment
     cli
@@ -24,6 +30,13 @@ step2:
 
     ; Enable interrupts
     sti
+
+    ; Offset
+    mov word[ss:0x00], handle_zero
+    ; Segment
+    mov word[ss:0x02], 0x7c0
+
+    int 0
 
     ; Move the address of the label to si
     mov si, message
@@ -47,9 +60,9 @@ print:
 
 print_char:
     ; Output a char to a screen.
-    mov ah, 0eh
+    mov ah, 0x0e
     ; This is a BIOS interrupt.
-    int 10h
+    int 0x10
     ret
 
 message: db 'Hello Wordl!', 0
