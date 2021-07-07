@@ -25,6 +25,26 @@ step2:
     ; Enable interrupts
     sti
 
+    mov ah, 0x02    ; Read sector command
+    mov al, 1       ; One sector to read
+    mov ch, 0       ; Cylunder low eight bits
+    mov cl, 2       ; Read sector two
+    mov dh, 0       ; Head number
+    mov bx, buffer
+    int 0x13
+    ; Jump carry
+    jc error
+
+    mov si, buffer
+    call print
+
+    ; Infinite loop
+    jmp $
+
+error:
+    mov si, error_message
+    call print
+
     ; Infinite loop
     jmp $
 
@@ -50,7 +70,12 @@ print_char:
     int 0x10
     ret
 
+error_message: db 'Failed to load sector', 0
+
 ; Pad the rest with zeroes.
 times 510-($ - $$) db 0
 ; Add the bootloader signature (little-endian).
 dw 0xAA55
+
+; Placeholder for placing our message outside the boot sector.
+buffer:
