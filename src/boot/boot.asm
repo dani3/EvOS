@@ -75,6 +75,12 @@ load32:
     mov ss, ax
     mov ebp, 0x00200000
     mov esp, ebp
+
+    ; Enable the A20 line
+    in al, 0x92     ; read from the processor bus
+    or al, 2
+    out 0x92, al    ; write to the processor bus
+
     jmp $
 
 ; Pad the rest with zeroes.
