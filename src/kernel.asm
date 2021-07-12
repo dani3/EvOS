@@ -21,3 +21,5 @@ _start:
     out 0x92, al    ; write to the processor bus
 
     jmp $
+
+times 512-($ - $$) db 0
