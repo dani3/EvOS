@@ -2,7 +2,7 @@ BUILD = ./build
 BIN = ./bin
 SRC = ./src
 
-FILES = $(BUILD)/kernel.asm.o $(BUILD)/kernel.o
+FILES = $(BUILD)/kernel.asm.o $(BUILD)/kernel.o $(BUILD)/tui.o $(BUILD)/string.o
 INCLUDES = -I$(SRC)
 FLAGS = -g -ffreestanding -falign-jumps -falign-functions -falign-labels -falign-loops -fstrength-reduce -fomit-frame-pointer -finline-functions -Wno-unused-function -fno-builtin -Werror -Wno-unused-label -Wno-cpp -Wno-unused-parameter -nostdlib -nostartfiles -nodefaultlibs -Wall -O0 -Iinc
 
@@ -23,6 +23,12 @@ $(BUILD)/kernel.asm.o: $(SRC)/kernel.asm
 	nasm -f elf -g $< -o $@
 
 $(BUILD)/kernel.o: $(SRC)/kernel.c
+	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c $< -o $@
+
+$(BUILD)/tui.o: $(SRC)/tui/tui.c
+	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c $< -o $@
+
+$(BUILD)/string.o: $(SRC)/utils/string.c
 	i686-elf-gcc $(INCLUDES) $(FLAGS) -std=gnu99 -c $< -o $@
 
 clean:
