@@ -54,3 +54,7 @@ dkms.conf
 
 # Doxygen
 docs/doxygen
+
+# Build
+build/
+bin/
