@@ -30,7 +30,6 @@ SpacesInContainerLiterals: 'false'
 SpacesInParentheses: 'false'
 SpacesInSquareBrackets: 'false'
 Cpp11BracedListStyle: 'false'
-IndentPPDirectives: AfterHash
 IndentWidth: 2
 TabWidth: '2'
 AlignTrailingComments: true
