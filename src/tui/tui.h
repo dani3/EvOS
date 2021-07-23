@@ -8,7 +8,7 @@
 #ifndef TUI_H
 #define TUI_H
 
-#include <stdint.h>
+#include <core/core.h>
 
 /// @brief colors supported by the TUI.
 typedef enum {
@@ -34,6 +34,6 @@ typedef enum {
 void tui_init(void);
 
 /// @brief prints a message to the screen.
-void tui_print(char *message, uint16_t len, tui_color_t color);
+void tui_print(char *message, tui_color_t color);
 
 #endif

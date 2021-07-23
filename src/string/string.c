@@ -1,4 +1,4 @@
-#include <utils/string.h>
+#include <string/string.h>
 
 /**
  * @brief returns the length of a given string.
@@ -7,7 +7,7 @@
  *
  * @return the size of the string.
  */
-size_t strlen(const char *p_str) {
+size_t strlen(const uint8_t *p_str) {
   size_t len = 0;
   while (*p_str) {
     len++;

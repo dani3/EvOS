@@ -2,7 +2,7 @@
 
 #include "unity.h"
 
-#include <utils/string.h>
+#include <string/string.h>
 
 void setUp(void) {
 }

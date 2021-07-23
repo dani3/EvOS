@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
+		"editor.tabSize": 2,
 		"C_Cpp.clang_format_style": "file",
 		"C_Cpp.default.defines": [
 			"TEST"
@@ -12,6 +13,14 @@
 		"C_Cpp.default.cStandard": "c99",
 		"C_Cpp.default.includePath": [
 			"src/"
-		]
+		],
+		"files.associations": {
+			"stdint.h": "c",
+			"stddef.h": "c",
+			"string.h": "c",
+			"idt.h": "c",
+			"tui.h": "c",
+			"chrono": "c"
+		}
 	}
 }

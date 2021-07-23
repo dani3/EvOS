@@ -10,6 +10,8 @@
  */
 #include <tui/tui.h>
 
+#include <string/string.h>
+
 // 80 character width.
 #define VGA_WIDTH 80
 // 25 lines.
@@ -67,11 +69,10 @@ void tui_init() {
  * @brief prints a given message to the screen.
  *
  * @param message: message to be printed.
- * @param len: length of the message.
  * @param color: color of the message.
  */
-void tui_print(char *message, uint16_t len, tui_color_t color) {
-  for (uint32_t i = 0; i < len; ++i) {
+void tui_print(char *message, tui_color_t color) {
+  for (uint32_t i = 0; i < strlen((uint8_t *) message); ++i) {
     // If it's a newline, increment the row.
     if (message[i] == '\n') {
       s_row++;
