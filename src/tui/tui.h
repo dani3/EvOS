@@ -10,7 +10,7 @@
 
 #include <core/core.h>
 
-/// @brief colors supported by the TUI.
+/// colors supported by the TUI.
 typedef enum {
   BLACK = 0,
   BLUE,
@@ -30,10 +30,10 @@ typedef enum {
   WHITE
 } tui_color_t;
 
-/// @brief initialize and clear the TUI.
+/// initialize and clear the TUI.
 void tui_init(void);
 
-/// @brief prints a message to the screen.
+/// prints a message to the screen.
 void tui_print(char *message, tui_color_t color);
 
 #endif

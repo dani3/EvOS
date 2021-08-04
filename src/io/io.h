@@ -12,14 +12,14 @@
 #define IO_H
 #include <core/core.h>
 
-/// @brief receive a byte through the given port.
+/// receive a byte through the given port.
 uint8_t insb(uint16_t port);
-/// @brief receive two bytes through the given port.
+/// receive two bytes through the given port.
 uint16_t insw(uint16_t port);
 
-/// @brief send a byte through the given port.
+/// send a byte through the given port.
 void outb(uint16_t port, uint8_t val);
-/// @brief send two bytes through the given port.
+/// send two bytes through the given port.
 void outw(uint16_t port, uint16_t val);
 
 #endif

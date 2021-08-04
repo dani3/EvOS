@@ -3,7 +3,7 @@
 
 #include <core/core.h>
 
-/// @brief returns the length of a given string.
+/// returns the length of a given string.
 size_t strlen(const uint8_t *str);
 
 #endif
