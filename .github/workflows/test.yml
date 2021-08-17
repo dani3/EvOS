@@ -1,4 +1,4 @@
-name: EvOS
+name: test
 
 on:
   push:
