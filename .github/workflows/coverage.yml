@@ -15,8 +15,10 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 3.0
-      - name: Install ceedling
-        run: gem install ceedling
+      - name: Install dependencies
+        run: |
+          gem install ceedling
+          pip install gcovr
       - name: Test
         run: ceedling utils:gcov gcov:all
       - name: Upload
