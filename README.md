@@ -1,5 +1,5 @@
 [![test](https://github.com/dani3/EvOS/actions/workflows/test.yml/badge.svg)](https://github.com/dani3/EvOS/actions/workflows/test.yml)
-
+[![codecov](https://codecov.io/gh/dani3/EvOS/branch/master/graph/badge.svg?token=F8N5EKFGV0)](https://codecov.io/gh/dani3/EvOS)
 # EvOS
 
 Multitasking OS and kernel with an interactive shell.
