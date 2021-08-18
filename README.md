@@ -1,3 +1,5 @@
+[![test](https://github.com/dani3/EvOS/actions/workflows/test.yml/badge.svg)](https://github.com/dani3/EvOS/actions/workflows/test.yml)
+
 # EvOS
 
 Multitasking OS and kernel with an interactive shell.

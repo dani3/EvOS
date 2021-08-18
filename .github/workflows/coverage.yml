@@ -1,0 +1,26 @@
+name: codecov
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  run:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 3.0
+      - name: Install ceedling
+        run: gem install ceedling
+      - name: Test
+        run: ceedling utils:gcov gcov:all
+      - name: Upload
+        uses: codecov/codecov-action@v1
+        with:
+          files: ./build/artifacts/gcov/GcovCoverage.json
+          token: ${{ secrets.CODECOV_TOKEN }}

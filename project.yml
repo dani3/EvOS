@@ -10,19 +10,11 @@
   :use_test_preprocessor: TRUE
   :use_auxiliary_dependencies: TRUE
   :build_root: build
-#  :release_build: TRUE
   :test_file_prefix: test_
   :which_ceedling: gem
   :ceedling_version: 0.31.1
   :default_tasks:
     - test:all
-
-#:test_build:
-#  :use_assembly: TRUE
-
-#:release_build:
-#  :output: MyApp.out
-#  :use_assembly: FALSE
 
 :environment:
 
@@ -69,8 +61,10 @@
 # You will need to have gcov and gcovr both installed to make it work.
 # For more information on these options, see docs in plugins/gcov
 :gcov:
+  :utilities:
+    - gcov
   :reports:
-    - Text
+    - JSON
   :gcovr:
     :html_medium_threshold: 75
     :html_high_threshold: 90
